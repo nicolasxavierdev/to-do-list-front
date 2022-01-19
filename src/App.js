@@ -1,10 +1,10 @@
 import List from "./components/List";
 
-function App () {
+function App() {
   return (
-    <div className="App">
+    <>
       <List />
-    </div>
+    </>
   );
 };
 

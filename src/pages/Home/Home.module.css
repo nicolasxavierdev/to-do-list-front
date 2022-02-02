@@ -1,0 +1,15 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 960px; 
+  height: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.container h1{
+  font-size: 24px;
+  line-height: 28px;
+  margin: 15px 0 50px 0;
+}

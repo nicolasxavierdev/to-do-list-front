@@ -32,8 +32,7 @@ export default function Item() {
             </span>
           </td>
         </tr>
-      )
+      );
     })
-
-  )
-}
+  );
+};

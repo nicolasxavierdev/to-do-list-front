@@ -7,7 +7,7 @@ export default function Table() {
       <table>
         <thead>
           <tr>
-            <th>NOME</th>
+            <th >NOME</th>
             <th>STATUS</th>
             <th>AÇÕES</th>
           </tr>
@@ -16,6 +16,6 @@ export default function Table() {
           <Item />
         </tbody>
       </table>
-    </div>
+    </div> 
   )
 }

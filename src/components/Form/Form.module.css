@@ -36,11 +36,11 @@
   border: none;
   align-items: center;
   background: #1B7FC7;
-  
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 10px;
-  color: #FFFFFF;
+  font: bold 12px/10px 'Roboto';
+  cursor: pointer;
+
+  color: #FFFFFF;  
+}
+.btn button:hover{
+  background: #0a568d;
 }

@@ -1,30 +1,31 @@
 .table {
   width: 100%;
   margin-top: 20px;
-  
+  margin-bottom: 50px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
 }
 
 .table table {
-  width: 922px;
+  width: 100%;
   
 }
 
-.table thead {
-  
+.table thead {  
   background: #000;
   color: #fff;
 }
-
-.table tr {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 47px;
+.table tr{
+  border-bottom: 1px solid #CED4DA;
+}
+.table th, .table td{
+  padding: 15px 10px;
 }
 
-.table th {
-  width: 33.33%;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 10px;
+.table th{
+  text-align: left;
+  font-size: 16px;
+}
+.table th:first-child {
+  width: 400px;
 }

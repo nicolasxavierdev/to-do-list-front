@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BsPencilFill, BsTrashFill } from "react-icons/bs";
+import { BsPencilFill, BsTrash } from "react-icons/bs";
 import api from "../../../services/api";
 import styles from "./Item.module.css";
 
@@ -28,7 +28,7 @@ export default function Item() {
               <BsPencilFill />
             </span>
             <span>
-              <BsTrashFill />
+              <BsTrash />
             </span>
           </td>
         </tr>

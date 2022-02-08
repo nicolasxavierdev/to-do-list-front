@@ -8,24 +8,34 @@
 
 .table table {
   width: 100%;
-  
 }
 
 .table thead {  
   background: #000;
   color: #fff;
 }
-.table tr{
+
+.table tr {
   border-bottom: 1px solid #CED4DA;
 }
-.table th, .table td{
+
+.table th, .table td {
   padding: 15px 10px;
 }
 
-.table th{
+.table th {
   text-align: left;
   font-size: 16px;
 }
+
 .table th:first-child {
   width: 400px;
+}
+
+.item tr {
+  border-bottom: 1px solid #ccc;
+}
+
+.actions span:last-child {
+  color: #ff0000;
 }

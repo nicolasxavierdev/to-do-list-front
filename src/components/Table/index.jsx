@@ -1,21 +1,47 @@
-import Item from './Item';
-import styles from "./Table.module.css";
+import { BsPencilFill, BsTrash } from 'react-icons/bs';
+import styles from './Table.modules.css';
 
-export default function Table() {
-  return(
-    <div className={styles.table}>
+export default function Table({ itemList, removeItem, openModalEdit }) {
+  return (
+    <div className={stayles.table}>
       <table>
         <thead>
           <tr>
-            <th >NOME</th>
+            <th>NOME</th>
             <th>STATUS</th>
             <th>AÇÕES</th>
           </tr>
         </thead>
         <tbody>
-          <Item />
+          {(itemList.length > 0)
+            ?
+            itemList.map((item) => {
+              return (
+                <tr key={item._id}>
+                  <td> {item.name} </td>
+                  <td>
+                    <span style={{ textDecoration: (item.status) ? 'line-through' : 'none' }}>
+                      Pendente
+                    </span>
+                  </td>
+                  <td className={styles.actions}>
+                    <span onClick={() => openModalEdit(item)}>
+                      <BsPencilFill />
+                    </span>
+                    <span onClick={() => removeItem(item._id)}>
+                      <BsTrash />
+                    </span>
+                  </td>
+                </tr>
+              );
+            })
+            :
+            <tr>
+              <td colSpan='3'>Nenhum item encontrado</td>
+            </tr>
+          }
         </tbody>
       </table>
-    </div> 
+    </div>
   )
 }

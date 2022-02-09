@@ -39,3 +39,9 @@
 .actions span:last-child {
   color: #ff0000;
 }
+
+.actions span {
+  margin-left: 10px;
+  cursor: pointer;
+
+}

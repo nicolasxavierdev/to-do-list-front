@@ -9,7 +9,7 @@ export default function Home() {
   const [itens, setItens] = useState([]);
   const [newItem, setNewItem] = useState('');
   const [modal, setModal] = useState(false);
-  const [statusItem, setStatuItem] = useState(false);
+  const [statusItem, setStatusItem] = useState(false);
   const [currItem, setCurrItem] = useState({});
 
   const fetchItemApi = () => {
@@ -30,7 +30,7 @@ export default function Home() {
         status: false
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         fetchItemApi();
         setNewItem('');
       })
@@ -55,7 +55,7 @@ export default function Home() {
   }
 
   const updateItem = () => {
-    const { _id } = currItem;
+    const {_id} = currItem;
 
     let data = {
       name: newItem,

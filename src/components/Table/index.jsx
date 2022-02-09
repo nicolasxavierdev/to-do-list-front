@@ -1,9 +1,9 @@
-import { BsPencilFill, BsTrash } from 'react-icons/bs';
-import styles from './Table.modules.css';
+import { BsCheckLg, BsPencilFill, BsTrash } from 'react-icons/bs';
+import styles from './Table.module.css';
 
 export default function Table({ itemList, removeItem, openModalEdit }) {
   return (
-    <div className={stayles.table}>
+    <div className={styles.table}>
       <table>
         <thead>
           <tr>
@@ -27,6 +27,9 @@ export default function Table({ itemList, removeItem, openModalEdit }) {
                   <td className={styles.actions}>
                     <span onClick={() => openModalEdit(item)}>
                       <BsPencilFill />
+                    </span>
+                    <span onClick={() => (item)}>
+                      <BsCheckLg />
                     </span>
                     <span onClick={() => removeItem(item._id)}>
                       <BsTrash />

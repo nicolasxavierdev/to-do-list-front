@@ -9,7 +9,7 @@ export default function Home() {
   const [itens, setItens] = useState([]);
   const [newItem, setNewItem] = useState('');
   const [modal, setModal] = useState(false);
-  const [statusItem, setStatusItem] = useState(false);
+  // const [statusItem, setStatusItem] = useState(false);
   const [currItem, setCurrItem] = useState({});
 
   const fetchItemApi = () => {
@@ -30,7 +30,6 @@ export default function Home() {
         status: false
       })
       .then((res) => {
-        // console.log(res);
         fetchItemApi();
         setNewItem('');
       })
@@ -40,7 +39,8 @@ export default function Home() {
   }
 
   const removeItem = (id) => {
-    let confirm = window.confirm('Deseja realmente excluir esse item?');
+    let confirm = window.confirm('Deseja realmente excluir essa taréfa?');
+
     if (confirm) {
       api
         .delete(`/item/${id}`)
@@ -54,15 +54,35 @@ export default function Home() {
     }
   }
 
-  const updateItem = () => {
-    const {_id} = currItem;
+  const updateItemName = () => { 
+      const { _id } = currItem;
 
-    let data = {
-      name: newItem,
-      status: statusItem
+      let data = {
+        name: newItem
+      }
+
+      updateItem(_id, data);
+      setNewItem('');
+
+  }
+
+  const updateStatus = (item) => {
+    let confirm = window.confirm('Deseja realmente finalizar essa taréfa?');
+
+    if (confirm) {
+      const { _id } = item;
+  
+      let data = {
+        status: true
+      }
+  
+      updateItem(_id, data)
     }
+  }
+
+  const updateItem = (id, data) => {
     api
-      .put(`/item/${_id}`, data)
+      .put(`/item/${id}`, data)
       .then((res) => {
         closeModalEdit();
         fetchItemApi();
@@ -95,9 +115,11 @@ export default function Home() {
       <h1>Lista de tarefas</h1>
       <div className={`${styles.form_group} ${(modal) ? styles.modalOpen : ''}`}>
         <div className={styles.formBox}>
-          <span className={styles.buttonClose} onClick={closeModalEdit}>
-            <BsFillXSquareFill />
-          </span>
+          {modal &&
+            <span className={styles.buttonClose} onClick={closeModalEdit}>
+              <BsFillXSquareFill />
+            </span>
+          }
           <div style={{ display: 'flex' }}>
             <div className={styles.ipt}>
               <label>Tarefas</label>
@@ -109,7 +131,7 @@ export default function Home() {
               {(modal)
                 ?
                 <div>
-                  <button onClick={updateItem}>
+                  <button onClick={updateItemName}>
                     Atualizar
                   </button>
                 </div>
@@ -120,17 +142,9 @@ export default function Home() {
               }
             </div>
           </div>
-          {(modal) &&
-            <div className={styles.iptBox}>
-              <label>
-                <input type="checkbox" onChange={(e) => setStatusItem(e.target.checked)} />
-                Marcar como finalizada
-              </label>
-            </div>
-          }
         </div>
       </div>
-      <Table itemList={itens} removeItem={removeItem} openModalEdit={openModalEdit} />
+      <Table itemList={itens} removeItem={removeItem} openModalEdit={openModalEdit} updateStatus={updateStatus} />
     </div>
   )
 }

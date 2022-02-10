@@ -1,7 +1,7 @@
-import { BsCheckLg, BsPencilFill, BsTrash } from 'react-icons/bs';
+import { BsPencilFill, BsTrash } from 'react-icons/bs';
 import styles from './Table.module.css';
 
-export default function Table({ itemList, removeItem, openModalEdit }) {
+export default function Table({ itemList, removeItem, openModalEdit, updateStatus }) {
   return (
     <div className={styles.table}>
       <table>
@@ -10,6 +10,7 @@ export default function Table({ itemList, removeItem, openModalEdit }) {
             <th>NOME</th>
             <th>STATUS</th>
             <th>AÇÕES</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -18,22 +19,28 @@ export default function Table({ itemList, removeItem, openModalEdit }) {
             itemList.map((item) => {
               return (
                 <tr key={item._id}>
-                  <td> {item.name} </td>
                   <td>
                     <span style={{ textDecoration: (item.status) ? 'line-through' : 'none' }}>
-                      Pendente
+                      {item.name}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {`${(item.status) ? 'Finalizada' : 'Pendente'}`}
                     </span>
                   </td>
                   <td className={styles.actions}>
                     <span onClick={() => openModalEdit(item)}>
                       <BsPencilFill />
                     </span>
-                    <span onClick={() => (item)}>
-                      <BsCheckLg />
-                    </span>
                     <span onClick={() => removeItem(item._id)}>
                       <BsTrash />
                     </span>
+                  </td>
+                  <td className={styles.btn}>
+                    {(!item.status) &&
+                      <button onClick={(e) => updateStatus(item)}>Finalizar tarefa</button>
+                    }
                   </td>
                 </tr>
               );

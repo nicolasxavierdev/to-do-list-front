@@ -45,3 +45,20 @@
   cursor: pointer;
 
 }
+
+.btn button {
+  width: 100px;
+  height: 25px;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: none;
+  align-items: center;
+  background: #1B7FC7;
+  font: bold 12px/10px 'Roboto';
+  cursor: pointer;
+  color: #FFFFFF;  
+}
+
+.btn button:hover {
+  background: #0a568d;
+}
